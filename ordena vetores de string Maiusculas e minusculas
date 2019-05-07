@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int tamString(char str[]) {
+      int i=0;
+
+      
+      while(str[i] != '\0') i++;
+      return i;
+}
+
+void ordenaString(char str[]) {
+      int tam = tamString(str);
+      int pos_maior=0;
+
+      for(int j=tam-1;j>0;j--) {
+           pos_maior=0;
+	   for(int i=1;i<=j;i++) {
+                int dist_i=0, dist_maior=0;
+                if(str[i]>='a' && str[i]<='z') dist_i = str[i]-'a';
+                else dist_i = str[i]-'A';
+                if(str[pos_maior]>='a' && str[pos_maior]<='z') dist_maior = str[pos_maior]-'a';
+                else dist_maior = str[pos_maior]-'A';
+
+		if(dist_i > dist_maior) pos_maior = i;
+	   }
+           int aux = str[j];
+           str[j] = str[pos_maior];
+           str[pos_maior] = aux;
+      }
+}
+
+int main() {
+   char str[100];
+
+   scanf("%s",str);
+   ordenaString(str);
+   printf("%s\n", str);
+
+   return 0;
+}
+
