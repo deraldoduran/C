@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+int tamanho(char n[]){//retorna o tamanho do vetor
+    int size=0;
+    while (n[size]<'\0') size++;
+    return size;
+}
+
+int main(){
+    char n1[100],n2[100],n3[100],n4[100];
+    char l1='\0',l2='\0',l3='\0';
+    
+    scanf(" %[^\n]s",n1);
+    scanf(" %[^\n]s",n2);
+    scanf(" %[^\n]s",n3);
+    //printf("%s %s %s",n1,n2,n3);
+   // tamanho(n1);
+    for(int i=0; n1[i];i++){
+        for(int j=0;n2[j];j++){
+           // l1=n1[i]-'a';
+           // l2=n2[i]-'a';
+            //l3=n3[i];
+        if(n1[i]==n2[j])n1[i]=n3[j];//n1 compara se naquela posição é igual a n2, se for recebe valor n3
+            else if(n1[i]==n3[j])n1[i]=n2[j];
+    }   
+    }
+    printf("%s",n1);
+    return 0;
+}
