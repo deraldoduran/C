@@ -1,0 +1,44 @@
+#include <stdio.h>
+struct Regaluno{
+    char nome[30];
+    float nota[3];
+    
+};
+struct Regaluno ler(){
+    struct Regaluno aluno;
+    scanf("%s",aluno.nome );
+    for(int i=0; i<3; i++){
+        
+        
+        scanf("%f", &aluno.nota[i]);
+}
+    return aluno;
+}
+/*float compara(){
+    float m1=0;
+    struct Regaluno a;
+    for (int i=0;i<3;i++){
+        m1=(m1+a.nota[i])/3;
+        
+    }
+    return m1;
+}
+*/
+int main(){
+  struct Regaluno a1,a2,a3;
+  float m1=0,m2=0,m3=0;
+  a1=ler();
+  a2=ler();
+  a3=ler();
+  for (int i=0;i<3;i++){
+        m1=(m1+a1.nota[i]);
+        m2=(m2+a2.nota[i]);
+        m3=(m3+a3.nota[i]);
+    }
+  
+      if(m1/3>=7)printf("%s %.2f\n",a1.nome, m1/3);
+      if(m2/3>=7)printf("%s %.2f\n",a2.nome,m2/3);
+      if(m3/3>=7)printf("%s %.2f\n",a3.nome,m3/3);
+  
+    return 0;
+}
