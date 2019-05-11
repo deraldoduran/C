@@ -1,0 +1,50 @@
+#include <stdio.h>
+struct PERSONAGEM{
+    int vida;
+    int ataque;
+};
+void ler(struct PERSONAGEM individuo[],int n){
+    
+    
+        for (int j=0; j<2;j++){
+            scanf("%d",& individuo[j].vida);
+            scanf("%d",&individuo[j].ataque);
+}
+}
+int combate(struct PERSONAGEM individuo[], int n){
+    int morreu=0;
+     while(morreu==0){
+         individuo[0].vida=individuo[0].vida-individuo[1].ataque;
+         individuo[1].vida=individuo[1].vida-individuo[0].ataque;
+         if(individuo[1].vida<=0 && individuo[0].vida<=0){
+             
+          return 0;
+         }
+         else if (individuo[1].vida<=0){
+             morreu=morreu+1;
+             return 1;
+         }else if(individuo[0].vida<=0 ){
+             morreu=morreu+1;
+             return 2;
+    }
+     
+    
+}
+}
+int main(){
+    struct PERSONAGEM individuo[2];
+    ler(individuo,2);
+    
+      if ( combate(individuo,2)>0){
+          
+       printf("Personagem %d",combate(individuo,2));
+       } else{
+           
+        printf("Empate");
+       }
+
+  
+  return 0;  
+}
+
+
