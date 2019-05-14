@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <math.h>
+void ler(char str[]){
+    scanf("%[^\n]s",str);
+}
+int size(char str[]){
+    int i=0,cont=0;
+    while(str[cont]!='\0') {
+        cont++;
+}
+    return cont;
+}
+int main(){
+    char fra1[100], cif[100], fra2[100];
+    int tamanhof=0, tamanhoc=0, aux=0;
+    char sinal;
+    
+    ler(fra1);
+    scanf("%s",cif);
+    scanf(" %c",&sinal);
+    tamanhof=size(fra1);
+    tamanhoc=size(cif);
+    //printf("%d",tamanhof);
+    switch (sinal){
+        
+    case '+':
+   
+        for(int i=0; i<tamanhof;i++){
+             
+           
+                
+                if(aux==tamanhoc)aux=0;
+               
+                if((fra1[i]>='a'&& fra1[i]<='z')||(fra1[i]>='A'&& fra1[i]<='Z')){
+                
+                fra1[i]=(fra1[i]-'a')+(cif[aux]-'a')+'a';
+                aux++;
+                }
+                //if(fra1[i]==' ')aux=0;
+               // else fra1[i]=fra1[i];
+                    
+                
+          
+        }
+  
+    
+    break;
+    case'-':
+         for(int i=0; i<tamanhof;i++){
+             
+           
+                
+                if(aux==tamanhoc)aux=0;
+               
+                if((fra1[i]>='a'&& fra1[i]<='z')||(fra1[i]>='A'&& fra1[i]<='Z')) fra1[i]=(fra1[i]-'a')-(cif[aux]-'a')+'a';
+                 if(fra1[i]==32)aux=0;
+                else fra1[i]=fra1[i];
+                    aux++;
+                
+          
+        }
+        break;
+    }
+   // printf("%d",aux);
+    printf("%s",fra1);
+    
+    
+    return 0;
+}
