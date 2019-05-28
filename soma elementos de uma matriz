@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+void receba(float **M,int nl, int nc){
+    for(int i=0; i<nl;i++){
+        for(int j=0; j<nc;j++){
+            scanf("%f",&M[i][j]);
+        }
+    }
+    
+}
+
+float soma(float **M,int nl,int nc){
+    float aux=0;
+    for(int i=0; i<nl;i++){
+        for(int j=0;j<nc;j++){
+            aux=aux+M[i][j];
+        }
+    }
+    return aux;
+}
+int main(){
+    int nl=0,nc=0;
+    scanf("%d %d",&nl,&nc);
+    float **M;
+    M=(float **)malloc(nl*sizeof(float*));
+    for (int i=0;i<nl;i++)
+         M[i]=(float*)malloc(nc*sizeof(float));
+         
+    receba(M,nl,nc);
+    printf("%f",soma(M,nl,nc));
+    
+    
+    
+    for(int i=0; i<nl;i++)
+        free (M[i]);
+        
+    free (M);
+    
+    return 0;
+}
