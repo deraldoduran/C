@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void preencher(int **M,int nl,int nc){
+   for(int i=0;i<nl;i++)//percorre as linhas
+    for(int j=0;j<nc;j++){//percorre as colunas
+        scanf(("%d", &M[i][j]));
+
+    }
+}
+void imprimir(int **M,int nl,int nc){
+    for(int i=0;i<nl;i++) {//percorre as linhas
+        for (int j = 0; j < nc; j++) {//percorre as colunas
+            printf(("%d ", M[i][j]));
+
+        }printf("\n");
+    }
+}
+void trocalinhas(int **M, int nl,int nc,int id1,int id2){//troca as linhas
+    for(int j=0;j<nc;j++){
+        int aux=M[id1][j];
+        M[id1][j]=M[id2][j];
+        M[id2][j]=aux;
+    }
+
+}
+void trocalinhas2(int **M, int nl,int nc,int id1,int id2){//troca as linhas usando troca de ponteiros
+    int *aux=M[id2];
+        M[id2]=M[id1];
+        M[id1]=aux;
+}
+int main() {
+
+    //matriz
+    int **M;
+    int nl=0,nc=0;
+    scanf("%d %d",&nl,&nc);
+    M=(int**)malloc(nl* sizeof(int*));//definiu a coluna da matriz
+    for (int i=0;i<nl;i++)
+        M[i]=(int*)malloc(nc* sizeof(int));//define o tamanho de cada linha de vetor associado à coluna do vetor estruturante
+
+    preencher(M,3,3);
+    imprimir(M,3,3);
+    for(int i=0;i<nl;i++)
+        free(M[i]);
+    free(M);
+    return 0;
+}
