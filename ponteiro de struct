@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct FICHA {
+  int matricula;
+  char nome[30];
+};
+
+typedef struct FICHA FICHA;
+
+void ler(FICHA *p) {
+    scanf("%d",&(p->matricula)); // scanf("%d",&((*p).matricula));
+    scanf("%s",p->nome);
+}
+
+void imprimir(FICHA var) {
+    printf("%d\n", var.matricula);
+    printf("%s\n", var.nome);
+}
+
+int main() {
+   FICHA *p = NULL;
+
+   p = (FICHA *) malloc(sizeof(FICHA));
+   ler(p);
+   imprimir(*p);
+
+   free(p);
+   p = NULL;
+
+   return 0;
+}
